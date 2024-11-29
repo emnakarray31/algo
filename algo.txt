@@ -1,0 +1,44 @@
+ALGORITHM sentence_analysis
+VAR
+    length : INTEGER 
+    words : INTEGER  
+    vowels : INTEGER 
+    test : BOOLEAN 
+    char : CHARACTER
+
+BEGIN
+    length := 0
+    words := 0
+    vowels := 0
+    test := FALSE
+     
+    DISPLAY( "Enter a sentence ending with a period:")
+    REPEAT
+        READ(char)
+        
+        IF (char = '.') THEN
+            break
+        ENDIF
+         
+        length:=length + 1
+
+        IF (char IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] )THEN
+            vowels:= vowels + 1
+        ENDIF
+
+        IF (char = ' ' )THEN
+            test := FALSE
+        ELSE
+            IF (NOT test) THEN
+                test := TRUE
+                words := words + 1
+            ENDIF
+        ENDIF
+    UNTIL (FALSE)
+
+ 
+    DISPLAY ("Length of the sentence: ", length)
+    DISPLAY ("Number of words: ", words)
+    DISPLAY ("Number of vowels: ", vowels)
+END
+
